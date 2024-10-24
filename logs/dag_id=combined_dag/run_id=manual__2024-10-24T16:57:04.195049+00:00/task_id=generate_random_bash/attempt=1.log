@@ -1,0 +1,17 @@
+[2024-10-24T16:57:24.137+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: combined_dag.generate_random_bash manual__2024-10-24T16:57:04.195049+00:00 [queued]>
+[2024-10-24T16:57:24.146+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: combined_dag.generate_random_bash manual__2024-10-24T16:57:04.195049+00:00 [queued]>
+[2024-10-24T16:57:24.146+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2024-10-24T16:57:24.160+0000] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): generate_random_bash> on 2024-10-24 16:57:04.195049+00:00
+[2024-10-24T16:57:24.164+0000] {standard_task_runner.py:57} INFO - Started process 1402 to run task
+[2024-10-24T16:57:24.167+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'combined_dag', 'generate_random_bash', 'manual__2024-10-24T16:57:04.195049+00:00', '--job-id', '86', '--raw', '--subdir', 'DAGS_FOLDER/combined_dag.py', '--cfg-path', '/tmp/tmpvy2sz6xf']
+[2024-10-24T16:57:24.169+0000] {standard_task_runner.py:85} INFO - Job 86: Subtask generate_random_bash
+[2024-10-24T16:57:24.237+0000] {task_command.py:410} INFO - Running <TaskInstance: combined_dag.generate_random_bash manual__2024-10-24T16:57:04.195049+00:00 [running]> on host 89a5d87e191c
+[2024-10-24T16:57:26.232+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='combined_dag' AIRFLOW_CTX_TASK_ID='generate_random_bash' AIRFLOW_CTX_EXECUTION_DATE='2024-10-24T16:57:04.195049+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-10-24T16:57:04.195049+00:00'
+[2024-10-24T16:57:26.328+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-10-24T16:57:26.330+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'echo $(( RANDOM ))']
+[2024-10-24T16:57:26.362+0000] {subprocess.py:86} INFO - Output:
+[2024-10-24T16:57:26.516+0000] {subprocess.py:93} INFO - 2851
+[2024-10-24T16:57:26.522+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-10-24T16:57:26.595+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=combined_dag, task_id=generate_random_bash, execution_date=20241024T165704, start_date=20241024T165724, end_date=20241024T165726
+[2024-10-24T16:57:26.647+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2024-10-24T16:57:26.710+0000] {taskinstance.py:2653} INFO - 1 downstream tasks scheduled from follow-on schedule check
