@@ -1,0 +1,16 @@
+[2024-10-25T15:01:32.290+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: temperature_check.branch_temperature scheduled__2024-10-24T00:00:00+00:00 [queued]>
+[2024-10-25T15:01:32.298+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: temperature_check.branch_temperature scheduled__2024-10-24T00:00:00+00:00 [queued]>
+[2024-10-25T15:01:32.299+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2024-10-25T15:01:32.339+0000] {taskinstance.py:1327} INFO - Executing <Task(BranchPythonOperator): branch_temperature> on 2024-10-24 00:00:00+00:00
+[2024-10-25T15:01:32.345+0000] {standard_task_runner.py:57} INFO - Started process 632 to run task
+[2024-10-25T15:01:32.351+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'temperature_check', 'branch_temperature', 'scheduled__2024-10-24T00:00:00+00:00', '--job-id', '103', '--raw', '--subdir', 'DAGS_FOLDER/temperature_dag.py', '--cfg-path', '/tmp/tmp2g9e1n6s']
+[2024-10-25T15:01:32.355+0000] {standard_task_runner.py:85} INFO - Job 103: Subtask branch_temperature
+[2024-10-25T15:01:32.536+0000] {task_command.py:410} INFO - Running <TaskInstance: temperature_check.branch_temperature scheduled__2024-10-24T00:00:00+00:00 [running]> on host 368dd6373ede
+[2024-10-25T15:01:32.661+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='temperature_check' AIRFLOW_CTX_TASK_ID='branch_temperature' AIRFLOW_CTX_EXECUTION_DATE='2024-10-24T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-24T00:00:00+00:00'
+[2024-10-25T15:01:32.694+0000] {python.py:183} INFO - Done. Returned value was: cold_branch
+[2024-10-25T15:01:32.695+0000] {python.py:216} INFO - Branch callable return cold_branch
+[2024-10-25T15:01:32.695+0000] {skipmixin.py:164} INFO - Following branch cold_branch
+[2024-10-25T15:01:32.695+0000] {skipmixin.py:224} INFO - Skipping tasks ['warm_branch']
+[2024-10-25T15:01:32.787+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=temperature_check, task_id=branch_temperature, execution_date=20241024T000000, start_date=20241025T150132, end_date=20241025T150132
+[2024-10-25T15:01:32.829+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2024-10-25T15:01:32.896+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check
