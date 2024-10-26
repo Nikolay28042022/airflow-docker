@@ -1,0 +1,22 @@
+[2024-10-26T16:01:52.837+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_dag.load_data manual__2024-10-26T16:01:09.677419+00:00 [queued]>
+[2024-10-26T16:01:52.848+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_dag.load_data manual__2024-10-26T16:01:09.677419+00:00 [queued]>
+[2024-10-26T16:01:52.848+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2024-10-26T16:01:52.864+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): load_data> on 2024-10-26 16:01:09.677419+00:00
+[2024-10-26T16:01:52.870+0000] {standard_task_runner.py:57} INFO - Started process 7938 to run task
+[2024-10-26T16:01:52.873+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'etl_dag', 'load_data', 'manual__2024-10-26T16:01:09.677419+00:00', '--job-id', '133', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpufxyaes6']
+[2024-10-26T16:01:52.876+0000] {standard_task_runner.py:85} INFO - Job 133: Subtask load_data
+[2024-10-26T16:01:52.924+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_dag.load_data manual__2024-10-26T16:01:09.677419+00:00 [running]> on host 0ca1d6ea2b5f
+[2024-10-26T16:01:53.013+0000] {taskinstance.py:1545} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_dag' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2024-10-26T16:01:09.677419+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-10-26T16:01:09.677419+00:00'
+[2024-10-26T16:01:53.014+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_dag.py", line 46, in load_data
+    transformed_df.to_sql('final_table', engine, if_exists='replace', index=False)
+AttributeError: 'str' object has no attribute 'to_sql'
+[2024-10-26T16:01:53.026+0000] {taskinstance.py:1345} INFO - Marking task as FAILED. dag_id=etl_dag, task_id=load_data, execution_date=20241026T160109, start_date=20241026T160152, end_date=20241026T160153
+[2024-10-26T16:01:53.041+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 133 for task load_data ('str' object has no attribute 'to_sql'; 7938)
+[2024-10-26T16:01:53.050+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2024-10-26T16:01:53.064+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

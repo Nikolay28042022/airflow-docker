@@ -1,0 +1,27 @@
+[2024-10-26T15:41:24.011+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_dag.extract_booking manual__2024-10-26T15:41:11.430724+00:00 [queued]>
+[2024-10-26T15:41:24.023+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_dag.extract_booking manual__2024-10-26T15:41:11.430724+00:00 [queued]>
+[2024-10-26T15:41:24.023+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2024-10-26T15:41:24.040+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): extract_booking> on 2024-10-26 15:41:11.430724+00:00
+[2024-10-26T15:41:24.048+0000] {standard_task_runner.py:57} INFO - Started process 1315 to run task
+[2024-10-26T15:41:24.053+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'etl_dag', 'extract_booking', 'manual__2024-10-26T15:41:11.430724+00:00', '--job-id', '124', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmp_qw88e99']
+[2024-10-26T15:41:24.055+0000] {standard_task_runner.py:85} INFO - Job 124: Subtask extract_booking
+[2024-10-26T15:41:24.131+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_dag.extract_booking manual__2024-10-26T15:41:11.430724+00:00 [running]> on host 0ca1d6ea2b5f
+[2024-10-26T15:41:24.256+0000] {taskinstance.py:1545} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_dag' AIRFLOW_CTX_TASK_ID='extract_booking' AIRFLOW_CTX_EXECUTION_DATE='2024-10-26T15:41:11.430724+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-10-26T15:41:11.430724+00:00'
+[2024-10-26T15:41:24.292+0000] {python.py:183} INFO - Done. Returned value was:     client_id booking_date          room_type  hotel_id  booking_cost currency
+0           4   2016/11/02  first_class_2_bed         6        3140.0      GBP
+1           2   2017-07-13      balcony_2_bed         2        2325.0      EUR
+2           3   2017-10-17     standard_3_bed         6        2475.0      EUR
+3           3   2018-01-16     standard_1_bed         4           NaN      NaN
+4           1   2018/03/20      balcony_2_bed         1        2740.0      GBP
+5           2   2019-10-10     standard_2_bed         5        1760.0      GBP
+6           5   2019-12-24     standard_2_bed         3        4000.0      GBP
+7           6   2019/09/14  first_class_2_bed         2        1840.0      GBP
+8           4   2019-08-07  first_class_2_bed         1        2910.0      GBP
+9           2   2020-08-07  first_class_2_bed         1        2910.0      GBP
+10          3   2020-08-07  first_class_2_bed         1        2910.0      GBP
+11          2   2021-08-07     standard_1_bed         1        2910.0      GBP
+12          4   2021-08-07     standard_1_bed         1        2910.0      GBP
+13          5   2021-08-07     standard_1_bed         1        2910.0      GBP
+[2024-10-26T15:41:27.086+0000] {taskinstance.py:1345} INFO - Marking task as SUCCESS. dag_id=etl_dag, task_id=extract_booking, execution_date=20241026T154111, start_date=20241026T154124, end_date=20241026T154127
+[2024-10-26T15:41:27.148+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2024-10-26T15:41:27.195+0000] {taskinstance.py:2653} INFO - 1 downstream tasks scheduled from follow-on schedule check

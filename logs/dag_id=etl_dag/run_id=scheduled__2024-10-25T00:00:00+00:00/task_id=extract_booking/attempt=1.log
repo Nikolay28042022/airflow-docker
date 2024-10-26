@@ -1,0 +1,36 @@
+[2024-10-26T12:34:17.636+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_dag.extract_booking scheduled__2024-10-25T00:00:00+00:00 [queued]>
+[2024-10-26T12:34:17.648+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_dag.extract_booking scheduled__2024-10-25T00:00:00+00:00 [queued]>
+[2024-10-26T12:34:17.648+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2024-10-26T12:34:17.660+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): extract_booking> on 2024-10-25 00:00:00+00:00
+[2024-10-26T12:34:17.669+0000] {standard_task_runner.py:57} INFO - Started process 756 to run task
+[2024-10-26T12:34:17.673+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'etl_dag', 'extract_booking', 'scheduled__2024-10-25T00:00:00+00:00', '--job-id', '115', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpplwwkjqi']
+[2024-10-26T12:34:17.675+0000] {standard_task_runner.py:85} INFO - Job 115: Subtask extract_booking
+[2024-10-26T12:34:17.746+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_dag.extract_booking scheduled__2024-10-25T00:00:00+00:00 [running]> on host 5da163e832c4
+[2024-10-26T12:34:19.684+0000] {taskinstance.py:1545} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_dag' AIRFLOW_CTX_TASK_ID='extract_booking' AIRFLOW_CTX_EXECUTION_DATE='2024-10-25T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-25T00:00:00+00:00'
+[2024-10-26T12:34:19.695+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_dag.py", line 10, in extract_booking
+    return pd.read_csv('/home/nikolay/airflow-docker/booking.csv')
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/util/_decorators.py", line 331, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 950, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 605, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1442, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1735, in _make_engine
+    self.handles = get_handle(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/common.py", line 856, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/home/nikolay/airflow-docker/booking.csv'
+[2024-10-26T12:34:19.703+0000] {taskinstance.py:1345} INFO - Marking task as FAILED. dag_id=etl_dag, task_id=extract_booking, execution_date=20241025T000000, start_date=20241026T123417, end_date=20241026T123419
+[2024-10-26T12:34:19.724+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 115 for task extract_booking ([Errno 2] No such file or directory: '/home/nikolay/airflow-docker/booking.csv'; 756)
+[2024-10-26T12:34:19.740+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2024-10-26T12:34:19.763+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check
